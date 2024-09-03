@@ -8,6 +8,7 @@ engine: twig
 type: theme
 'base theme': radix
 starterkit: true
+logo: logo.jpg
 dependencies:
   - 'drupal:serialization'
 'interface translation project': archipelago_subtheme_nysa

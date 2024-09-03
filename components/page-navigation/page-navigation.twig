@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Template for a Page Navigation component.
+ *
+#}
+{% apply spaceless %}
+
+{%
+  embed 'archipelago_subtheme_nysa:navbar' with {
+    container: 'fixed',
+    placement: 'sticky-top',
+    navbar_theme: 'dark',
+    navbar_utility_classes: [
+      'justify-content-between',
+      'bg-primary',
+    ],
+  }
+%}
+  {% block branding %}
+    {% if page.navbar_branding %}
+      {{ page.navbar_branding }}
+    {% endif %}
+  {% endblock %}
+
+  {% block left %}
+    {% if page.navbar_left %}
+      <div class="me-auto">
+        {{ page.navbar_left }}
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block right %}
+    {% if page.navbar_right %}
+      <div class="ms-auto">
+        {{ page.navbar_right }}
+      </div>
+    {% endif %}
+  {% endblock %}
+{% endembed %}
+
+{% endapply %}

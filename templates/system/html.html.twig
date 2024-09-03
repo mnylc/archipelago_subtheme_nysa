@@ -23,4 +23,7 @@
  * @see template_preprocess_html()
  */
 #}
-{% include "radix:html" %}
+{% include "archipelago_subtheme_nysa:html" with {
+  body_utility_classes: ['h-100'],
+  }
+%}
