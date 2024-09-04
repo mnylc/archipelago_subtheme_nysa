@@ -15,8 +15,8 @@
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
-main {
-  min-height: 100%;
+#main-content-wrapper {
+  min-height: calc(100vh - 300px);
   height: auto !important;
   margin: 0 auto -300px;
 }
@@ -45,8 +45,8 @@ footer {
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
-main {
-  min-height: 100%;
+#main-content-wrapper {
+  min-height: calc(100vh - 300px);
   height: auto !important;
   margin: 0 auto -300px;
 }

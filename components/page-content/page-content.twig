@@ -46,7 +46,7 @@
   ]|merge(page_content_container_utility_classes ?: [])
 %}
 
-<main{{content_attributes.addClass(page_main_classes)}}>
+<main{{content_attributes.addClass(page_main_classes)}} id="main-content-wrapper">
 	{% if page.header %}
 		<header class="page__header">
 			<div {{ page_header_container_attributes.addClass(page_header_container_classes) }}>
@@ -67,3 +67,4 @@
     </div>
   {% endif %}
 </main>
+<div id="push-footer"></div>
