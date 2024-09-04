@@ -15,6 +15,20 @@
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
+main {
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto -300px;
+}
+
+footer {
+  height: 300px;
+}
+
+#push-footer {
+  height: 300px;
+}
+
 /**
  * Variables
  * Variables should follow the $component-state-property-size formula for
@@ -31,6 +45,20 @@
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
+main {
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto -300px;
+}
+
+footer {
+  height: 300px;
+}
+
+#push-footer {
+  height: 300px;
+}
+
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0F5EA8;
