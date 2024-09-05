@@ -18,6 +18,7 @@ regions:
   navbar_left: 'Navbar left'
   navbar_right: 'Navbar right'
   header: Header
+  sidebar_first: 'Sidebar First'
   content: Content
   page_bottom: 'Page bottom'
   footer: Footer
