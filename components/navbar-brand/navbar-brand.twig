@@ -52,7 +52,7 @@
 {% endif %}
 
 {% macro image(src, width, height, alt) %}
-  {% set height_attribute = height != 'auto' ? 'height="' ~ height ~ '"'  %}
+  {% set height_attribute = height != 'auto' ? 'height=' ~ height  %}
   <img src="{{ src }}" width="{{ width|default(140) }}" {{ height_attribute }} alt="{{ alt|default('') }}" />
 {% endmacro %}
 
