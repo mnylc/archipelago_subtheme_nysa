@@ -24,6 +24,9 @@ $border-radius-lg: 0;
 $navbar-brand-padding-y: 0;
 $black: #000000;
 $headings-color: rgba($black, 1);
+$font-family-sans-serif: "Raleway", sans-serif;
+$font-family-base: $font-family-sans-serif;
+
 
 #main-content-wrapper {
   min-height: calc(100vh - 300px);
