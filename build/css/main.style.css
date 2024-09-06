@@ -35,10 +35,6 @@ footer {
   margin-bottom: -0.5rem;
 }
 
-body {
-  overflow-y: scroll;
-}
-
 /**
  * Variables
  * Variables should follow the $component-state-property-size formula for
@@ -72,10 +68,6 @@ footer {
 .block-system-branding-block {
   margin-top: -0.5rem;
   margin-bottom: -0.5rem;
-}
-
-body {
-  overflow-y: scroll;
 }
 
 :root,
