@@ -44,3 +44,74 @@ footer {
   margin-top: -0.5rem;
   margin-bottom: -0.5rem;
 }
+
+div[data-drupal-selector="edit-actions"] {
+  align-items: end;
+  display: flex;
+}
+/* advanced search */
+.advanced-search-box {
+  .views-exposed-form {
+    .form-row {
+      .fieldset-wrapper {
+        column-gap: 0;
+        flex-flow: column;
+        row-gap: 1rem;
+      }
+    }
+  }
+}
+
+
+.advanced-search-box {
+  .views-exposed-form {
+    .form-row {
+      min-height: 0;
+      width: 100%;
+      flex-flow: column;
+      fieldset {
+        min-height: 0;
+        flex-direction: column !important;
+        &.form-wrapper {
+          display: flex;
+          column-gap: 1rem;
+          & > div {
+            display: flex;
+            align-items: end;
+          }
+          label {
+            @extend .visually-hidden;
+          }
+          .js-form-item {
+            display: flex;
+            flex-grow: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.advanced-search-box {
+  .form-actions.mb-3 {
+    margin-top: 1rem;
+  }
+}
+
+
+.form-row > div, .form-row > fieldset {
+  padding-right: .3125rem;
+  padding-left: .3125rem;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  width: auto;
+  max-width:none
+}
+
+.form-row .form-actions {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self:flex-end
+}

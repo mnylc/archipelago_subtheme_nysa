@@ -10,4 +10,7 @@
  * @see template_preprocess_input()
  */
 #}
-{% include "radix:input" %}
+{% include "radix:input" with {
+  attributes: attributes.removeClass('form-text')
+}
+%}
