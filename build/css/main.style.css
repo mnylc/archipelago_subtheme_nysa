@@ -97,6 +97,10 @@ div[data-drupal-selector=edit-actions] {
   display: none !important;
 }
 
+strong {
+  margin-right: 0.25rem;
+}
+
 /**
  * Variables
  * Variables should follow the $component-state-property-size formula for
@@ -192,6 +196,10 @@ div[data-drupal-selector=edit-actions] {
 
 .hidden {
   display: none !important;
+}
+
+strong {
+  margin-right: 0.25rem;
 }
 
 :root,
