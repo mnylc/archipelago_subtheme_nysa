@@ -4,3 +4,8 @@
  * @file
  * Custom theme hooks.
  */
+
+function archipelago_subtheme_nysa_preprocess(&$variables)
+{
+  $variables['#attached']['library'][] = 'archipelago_subtheme_nysa/fontawesome';
+}

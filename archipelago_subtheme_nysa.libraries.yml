@@ -59,3 +59,9 @@ jquery.validate:
     src/js/overrides/validate.js: {}
   dependencies:
     - core/jquery
+
+fontawesome:
+  version: VERSION
+  css:
+    component:
+      //use.fontawesome.com/releases/v5.13.0/css/all.css: { type: external }
