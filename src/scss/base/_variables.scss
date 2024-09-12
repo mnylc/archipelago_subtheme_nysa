@@ -115,3 +115,11 @@ div[data-drupal-selector="edit-actions"] {
   -ms-flex-item-align: end;
   align-self:flex-end
 }
+
+
+.d-flex.hidden {
+  display: none !important;
+}
+.hidden {
+  display: none !important;
+}

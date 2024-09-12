@@ -89,6 +89,14 @@ div[data-drupal-selector=edit-actions] {
   align-self: flex-end;
 }
 
+.d-flex.hidden {
+  display: none !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
 /**
  * Variables
  * Variables should follow the $component-state-property-size formula for
@@ -176,6 +184,14 @@ div[data-drupal-selector=edit-actions] {
 
 .form-row .form-actions {
   align-self: flex-end;
+}
+
+.d-flex.hidden {
+  display: none !important;
+}
+
+.hidden {
+  display: none !important;
 }
 
 :root,
