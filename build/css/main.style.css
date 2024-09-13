@@ -102,6 +102,10 @@ strong {
   background-color: var(--bs-yellow);
 }
 
+.page-wrapper .sticky-top {
+  z-index: 501;
+}
+
 /**
  * Variables
  * Variables should follow the $component-state-property-size formula for
@@ -202,6 +206,10 @@ div[data-drupal-selector=edit-actions] {
 strong {
   margin-right: 0.25rem;
   background-color: var(--bs-yellow);
+}
+
+.page-wrapper .sticky-top {
+  z-index: 501;
 }
 
 :root,

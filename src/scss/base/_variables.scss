@@ -127,3 +127,7 @@ strong {
   margin-right: 0.25rem;
   background-color: var(--bs-yellow);
 }
+
+.page-wrapper .sticky-top {
+  z-index:501;
+}

@@ -3129,7 +3129,19 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_bootstrap */ "./src/js/_bootstrap.js");
+/* harmony import */ var bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/js/dist/scrollspy */ "./node_modules/bootstrap/js/dist/scrollspy.js");
+/* harmony import */ var bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var bootstrap_js_dist_popover__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/js/dist/popover */ "./node_modules/bootstrap/js/dist/popover.js");
+/* harmony import */ var bootstrap_js_dist_popover__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_popover__WEBPACK_IMPORTED_MODULE_2__);
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 // * Bootstrap libraries
+
+
 
 
 // * Any other global site-wide JavaScript should be placed below.
@@ -3154,6 +3166,204 @@ __webpack_require__.r(__webpack_exports__);
           $('body').removeClass("scrolldown");
         }
         position = scroll;
+      });
+    }
+  };
+  Drupal.behaviors.bootstrap_nysa_scrollspy = {
+    attach: function attach(context, settings) {
+      function SetFixedPositioning(ele) {
+        var element = $(ele);
+        var rect = ele.getBoundingClientRect();
+        element.css("position", "");
+        element.css("left", "");
+        element.css("top", "");
+        var currentOffset = element.offset();
+        element.css("position", "fixed");
+        element.offset(currentOffset);
+        /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
+        /* 128 here is very specific to this theme. Sorry! */
+        var topCss = +element.css('top').replace('px', '');
+        if (topCss < 128) {
+          element.css("top", "128px");
+        }
+        element.css("width", rect.width);
+        var scrollSpyContentEl = document.querySelector('body');
+        var scrollSpy = bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default().getInstance(scrollSpyContentEl);
+        if (scrollSpy == null) {
+          scrollSpy = new (bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default())(scrollSpyContentEl);
+        }
+        scrollSpy.refresh();
+      }
+      function ResetFixedPositioning(ele) {
+        var element = $(ele);
+        var currentFixedOffset = element.offset();
+        // We want to keep the Vertical offset
+        element.css("position", "");
+        element.css("left", "");
+        element.css("top", "");
+        element.css("top", "");
+        element.css("width", "");
+        var currentOffset = element.offset();
+        currentOffset.top = currentFixedOffset.top;
+        element.css("position", "fixed");
+        element.offset(currentOffset);
+        /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
+        /* 128 here is very specific to this theme. Sorry! */
+        var topCss = +element.css('top').replace('px', '');
+        if (topCss < 128) {
+          element.css("top", "128px");
+        }
+        var scrollSpyContentEl = document.querySelector('body');
+        var scrollSpy = bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default().getInstance(scrollSpyContentEl);
+        scrollSpy.refresh();
+      }
+      function SetAbsolutePositioning(ele) {
+        var spiedOn = document.querySelector('#main-content .spied');
+        var scrollspy = document.querySelector('#main-content .list-scrollspy');
+        if (spiedOn && scrollspy) {
+          var scrollSpyContentEl = document.querySelector('body');
+          var scrollSpy = bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default().getInstance(scrollSpyContentEl);
+          var Realtop = spiedOn.clientHeight - scrollspy.clientHeight;
+          if (Realtop > 0) {
+            var element = $(ele);
+            element.css("position", "");
+            element.css("left", "");
+            element.css("top", "");
+            element.css("position", "absolute");
+            element.css("left", "");
+            element.css("top", Realtop + 'px');
+            scrollSpy.refresh();
+          }
+        }
+        /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
+        /* 128 here is very specific to this theme. Sorry! */
+        /*const topCss = +element.css('top').replace('px', '')
+        if (topCss < 128) {
+          element.css("top","128px");
+        } */
+      }
+      function UnSetFixedPositioning(ele) {
+        var element = $(ele);
+        element.css("position", "");
+        element.css("left", "");
+        element.css("top", "");
+        element.css("width", "");
+      }
+      /* resize needs to be aware of this offset.
+               Can't be any offset.
+                */
+      $(once('nysa-list-scrollspy', '.list-scrollspy', context)).each(function () {
+        var ele = this;
+        // To make the fixed scrollspy absolute when we reach the end (imagine a scalled window)
+        // or a another block after the content we are spying on
+        // we will add an element just after the div.content and check intersection
+        // This is extremely dependent on this theme/sites needs
+        // see html.html.twig where we set up the scroll spy data elements at the body level.
+        // and assumes only things inside ".content block" are spied on.
+        var $content = document.querySelector('#main-content .spied');
+        if ($content) {
+          var trackerDiv = document.createElement("div");
+          trackerDiv.setAttribute("id", "scrollspyAfter");
+          $content.insertAdjacentElement('afterend', trackerDiv);
+          $(window).on('resize', function () {
+            if (ele.classList.contains('list-scrollspy-fixed')) {
+              ResetFixedPositioning(ele);
+            }
+          });
+        }
+      });
+      if ($(context).is('.view') || context == document) {
+        /* Initialize Popovers */
+        var popoverTriggerList = [].slice.call(context.querySelectorAll('[data-bs-toggle="popover"]'));
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+          return new (bootstrap_js_dist_popover__WEBPACK_IMPORTED_MODULE_2___default())(popoverTriggerEl);
+        });
+      }
+      $(once('attache_observer', '.page-wrapper', context)).each(function (index, value) {
+        /* Used to keep track only once we passed the fake div we added after div.content so
+        we can position absolutely the scrollspy navigation
+         */
+        var passtThreasHold = false;
+        var observer = new IntersectionObserver(function (entries) {
+          var ratio = entries[0].intersectionRatio;
+          if (ratio < 0.1) {
+            var $scrollspy = document.querySelector('.list-scrollspy');
+            if ($scrollspy) {
+              if (!$scrollspy.classList.contains('list-scrollspy-fixed')) {
+                SetFixedPositioning($scrollspy);
+                $scrollspy.classList.add('list-scrollspy-fixed');
+                // reset to false, so we can act against when scrolling down.
+                passtThreasHold = false;
+              }
+            }
+          }
+          if (ratio < 0.4) {
+            var $topbar = document.querySelector('div[data-component-id="archipelago_subtheme_nysa:page"] > nav.navbar');
+            if (!$topbar.classList.contains('intersected')) {
+              $topbar.classList.add('intersected');
+            }
+          } else if (ratio > 0.6) {
+            var _$topbar = document.querySelector('div[data-component-id="archipelago_subtheme_nysa:page"] > nav.navbar');
+            var _$scrollspy = document.querySelector('.list-scrollspy');
+            if (_$topbar.classList.contains('intersected')) {
+              _$topbar.classList.remove('intersected');
+            }
+          }
+          if (ratio > 0.5) {
+            var _$scrollspy2 = document.querySelector('.list-scrollspy');
+            if (_$scrollspy2) {
+              if (_$scrollspy2.classList.contains('list-scrollspy-fixed')) {
+                _$scrollspy2.classList.remove('list-scrollspy-fixed');
+                UnSetFixedPositioning(_$scrollspy2);
+              }
+            }
+          }
+        }, {
+          root: null,
+          rootMargin: '0px 0px',
+          threshold: _toConsumableArray(Array(20).keys()).map(function (x) {
+            return x / 20;
+          })
+        });
+        var observerAfter = new IntersectionObserver(function (entries) {
+          var ratio = entries[0].intersectionRatio;
+          if (ratio == 1 && !passtThreasHold) {
+            //console.log(passtThreasHold);
+            var $scrollspy = document.querySelector('.list-scrollspy');
+            if ($scrollspy) {
+              if ($scrollspy.classList.contains('list-scrollspy-fixed')) {
+                passtThreasHold = true;
+                //SetAbsolutePositioning($scrollspy);
+                $scrollspy.classList.remove('list-scrollspy-fixed');
+              }
+            }
+          } else if (ratio == 0 && passtThreasHold && document.querySelector("body").classList.contains('scrollup')) {
+            var _$scrollspy3 = document.querySelector('.list-scrollspy');
+            if (_$scrollspy3) {
+              passtThreasHold = false;
+              SetFixedPositioning(_$scrollspy3);
+              _$scrollspy3.classList.add('list-scrollspy-fixed');
+            }
+          }
+          // So here is the hard thing. On scroll down we will move from 0 to 1 but then again to 0
+          // which migh trigger again a "fixed". So we need a 3 state thing
+          // where once 1 and scrolling down we stay there and only a 0 from 1 when scrolling up should
+          // re-fix the nav. Too much engineering.
+          // Also this threshold is in 10 increments to make it less sensitive and also less CPU
+          // consuming.
+        }, {
+          root: null,
+          rootMargin: '-35% 0% -35% 0%',
+          threshold: 1
+        });
+        var $observedElement = document.querySelector('div[data-component-id="archipelago_subtheme_nysa:page"] .page__header');
+        var $observedAfterElement = document.querySelector("#scrollspyAfter");
+        if ($observedElement && $observedAfterElement) {
+          observer.observe($observedElement);
+        }
+        if ($observedAfterElement) {
+          observerAfter.observe($observedAfterElement);
+        }
       });
     }
   };
