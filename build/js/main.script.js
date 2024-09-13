@@ -3183,8 +3183,8 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
         /* 128 here is very specific to this theme. Sorry! */
         var topCss = +element.css('top').replace('px', '');
-        if (topCss != 128) {
-          element.css("top", "128px");
+        if (topCss < 128 || topCss > 128) {
+          element.css("top", "calc(128px + var(--drupal-displace-offset-top, 0))");
         }
         element.css("width", rect.width);
         var scrollSpyContentEl = document.querySelector('body');
@@ -3210,8 +3210,8 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
         /* 128 here is very specific to this theme. Sorry! */
         var topCss = +element.css('top').replace('px', '');
-        if (topCss != 128) {
-          element.css("top", "128px");
+        if (topCss < 128 || topCss > 128) {
+          element.css("top", "calc(128px +var(--drupal-displace-offset-top, 0))");
         }
         var scrollSpyContentEl = document.querySelector('body');
         var scrollSpy = bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default().getInstance(scrollSpyContentEl);

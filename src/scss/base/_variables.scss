@@ -130,4 +130,5 @@ strong {
 
 .page-wrapper .sticky-top {
   z-index:501;
+  top: var(--drupal-displace-offset-top, 0);
 }

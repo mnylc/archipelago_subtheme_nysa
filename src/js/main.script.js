@@ -44,8 +44,9 @@ import Popover from 'bootstrap/js/dist/popover';
         /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
         /* 128 here is very specific to this theme. Sorry! */
         const topCss = +element.css('top').replace('px', '')
-        if (topCss != 128) {
-          element.css("top","128px");
+
+        if (topCss < 128 || topCss > 128) {
+          element.css("top","calc(128px + var(--drupal-displace-offset-top, 0))");
         }
         element.css("width",  rect.width);
         var scrollSpyContentEl = document.querySelector('body');
@@ -72,8 +73,8 @@ import Popover from 'bootstrap/js/dist/popover';
         /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
         /* 128 here is very specific to this theme. Sorry! */
         const topCss = +element.css('top').replace('px', '')
-        if (topCss != 128) {
-          element.css("top","128px");
+        if (topCss < 128 || topCss > 128) {
+          element.css("top","calc(128px +var(--drupal-displace-offset-top, 0))");
         }
         var scrollSpyContentEl = document.querySelector('body');
         var scrollSpy = ScrollSpy.getInstance(scrollSpyContentEl);
