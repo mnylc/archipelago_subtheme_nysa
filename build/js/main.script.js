@@ -3183,7 +3183,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
         /* 128 here is very specific to this theme. Sorry! */
         var topCss = +element.css('top').replace('px', '');
-        if (topCss < 128) {
+        if (topCss != 128) {
           element.css("top", "128px");
         }
         element.css("width", rect.width);
@@ -3210,7 +3210,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
         /* 128 here is very specific to this theme. Sorry! */
         var topCss = +element.css('top').replace('px', '');
-        if (topCss < 128) {
+        if (topCss != 128) {
           element.css("top", "128px");
         }
         var scrollSpyContentEl = document.querySelector('body');
@@ -3224,6 +3224,8 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
           var scrollSpyContentEl = document.querySelector('body');
           var scrollSpy = bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default().getInstance(scrollSpyContentEl);
           var Realtop = spiedOn.clientHeight - scrollspy.clientHeight;
+          var Observed = document.querySelector('div[data-component-id="archipelago_subtheme_nysa:page"] .page__header');
+          var offsetRec = Observed.getBoundingClientRect();
           if (Realtop > 0) {
             var element = $(ele);
             element.css("position", "");
@@ -3231,7 +3233,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
             element.css("top", "");
             element.css("position", "absolute");
             element.css("left", "");
-            element.css("top", Realtop + 'px');
+            element.css("top", Realtop - 128 + 'px');
             scrollSpy.refresh();
           }
         }
@@ -3286,6 +3288,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         var passtThreasHold = false;
         var observer = new IntersectionObserver(function (entries) {
           var ratio = entries[0].intersectionRatio;
+          console.log(ratio);
           if (ratio < 0.1) {
             var $scrollspy = document.querySelector('.list-scrollspy');
             if ($scrollspy) {
@@ -3327,13 +3330,13 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         });
         var observerAfter = new IntersectionObserver(function (entries) {
           var ratio = entries[0].intersectionRatio;
+          console.log("after" + ratio);
           if (ratio == 1 && !passtThreasHold) {
-            //console.log(passtThreasHold);
             var $scrollspy = document.querySelector('.list-scrollspy');
             if ($scrollspy) {
               if ($scrollspy.classList.contains('list-scrollspy-fixed')) {
                 passtThreasHold = true;
-                //SetAbsolutePositioning($scrollspy);
+                SetAbsolutePositioning($scrollspy);
                 $scrollspy.classList.remove('list-scrollspy-fixed');
               }
             }
@@ -3346,14 +3349,14 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
             }
           }
           // So here is the hard thing. On scroll down we will move from 0 to 1 but then again to 0
-          // which migh trigger again a "fixed". So we need a 3 state thing
+          // which might trigger again a "fixed". So we need a 3 state thing
           // where once 1 and scrolling down we stay there and only a 0 from 1 when scrolling up should
           // re-fix the nav. Too much engineering.
           // Also this threshold is in 10 increments to make it less sensitive and also less CPU
           // consuming.
         }, {
           root: null,
-          rootMargin: '-35% 0% -35% 0%',
+          rootMargin: '-35% 0% -45% 0%',
           threshold: 1
         });
         var $observedElement = document.querySelector('div[data-component-id="archipelago_subtheme_nysa:page"] .page__header');
