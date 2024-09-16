@@ -3167,6 +3167,45 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         }
         position = scroll;
       });
+      $(once('nysa-mark', '.list-scrollspy', context)).each(function () {
+        var ele = this;
+        var $content_to_mark = document.querySelector('.spied');
+        if (window.location.hash !== '') {
+          var $targetAnchor = document.querySelector(window.location.hash);
+          if ($targetAnchor && $content_to_mark) {
+            var tabId = $targetAnchor.closest('.tab-pane').attr('id');
+            $content_to_mark.find('a[href=#' + tabId + ']').click();
+          }
+        }
+        function extractAllText(str) {
+          var re = /"(.*?)"/g;
+          var result = [];
+          var current;
+          while (current = re.exec(str)) {
+            result.push(current.pop());
+          }
+          return result.length > 0 ? result : [str];
+        }
+        if ($content_to_mark) {
+          var params = new URLSearchParams(window.location.search.slice(1));
+          console.log(params.get('search_api_fulltext'));
+          if (params.has('search_api_fulltext')) {
+            var search_api_fulltext = params.get('search_api_fulltext');
+            var pieces = extractAllText(search_api_fulltext);
+            var markInstance = new Mark($content_to_mark);
+            console.log(pieces);
+            pieces.forEach(function (item) {
+              console.log(item);
+              markInstance.mark(item, {
+                "element": "strong",
+                "acrossElements": true,
+                "diacritics": true,
+                "separateWordSearch": true
+              });
+            });
+          }
+        }
+      });
     }
   };
   Drupal.behaviors.bootstrap_nysa_scrollspy = {
@@ -3370,7 +3409,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
       });
     }
   };
-})(jQuery, Drupal);
+})(jQuery, Drupal, Mark);
 
 /***/ }),
 

@@ -28,6 +28,49 @@ import Popover from 'bootstrap/js/dist/popover';
         }
         position = scroll;
       });
+      $(once('nysa-mark', '.list-scrollspy', context)).each(function () {
+        var ele = this;
+
+        let $content_to_mark = document.querySelector('.spied');
+        if (window.location.hash !== '') {
+          var $targetAnchor = document.querySelector(window.location.hash);
+          if ($targetAnchor && $content_to_mark) {
+            let tabId = $targetAnchor.closest('.tab-pane').attr('id');
+            $content_to_mark.find('a[href=#' + tabId + ']').click();
+          }
+        }
+        function extractAllText(str){
+          const re = /"(.*?)"/g;
+          const result = [];
+          let current;
+          while (current = re.exec(str)) {
+            result.push(current.pop());
+          }
+          return result.length > 0
+            ? result
+            : [str];
+        }
+
+        if ($content_to_mark) {
+          let params = new URLSearchParams(window.location.search.slice(1));
+          console.log(params.get('search_api_fulltext'));
+          if (params.has('search_api_fulltext')) {
+            let search_api_fulltext = params.get('search_api_fulltext');
+            const pieces = extractAllText(search_api_fulltext);
+            let markInstance = new Mark($content_to_mark);
+            console.log(pieces);
+            pieces.forEach((item)=> {
+              console.log(item);
+              markInstance.mark(item, {
+                "element": "strong",
+                "acrossElements": true,
+                "diacritics": true,
+                "separateWordSearch": true,
+              });
+            });
+          }
+        }
+      })
     }
   };
   Drupal.behaviors.bootstrap_nysa_scrollspy = {
@@ -245,4 +288,4 @@ import Popover from 'bootstrap/js/dist/popover';
     }
   }
 
-})(jQuery, Drupal);
+})(jQuery, Drupal, Mark);

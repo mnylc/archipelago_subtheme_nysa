@@ -3,6 +3,7 @@ style:
     theme:
       build/css/main.style.css: {}
   js:
+    https://cdn.jsdelivr.net/mark.js/8.6.0/mark.min.js: { type: external }
     build/js/main.script.js: {}
   dependencies:
     - core/drupal
