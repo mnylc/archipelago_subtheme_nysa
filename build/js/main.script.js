@@ -3169,7 +3169,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
       });
       $(once('nysa-mark', '.list-scrollspy', context)).each(function () {
         var ele = this;
-        var $content_to_mark = document.querySelector('.spied');
+        var $content_to_mark = document.querySelector('#main-content');
         if (window.location.hash !== '') {
           var $targetAnchor = document.querySelector(window.location.hash);
           if ($targetAnchor && $content_to_mark) {

@@ -31,7 +31,7 @@ import Popover from 'bootstrap/js/dist/popover';
       $(once('nysa-mark', '.list-scrollspy', context)).each(function () {
         var ele = this;
 
-        let $content_to_mark = document.querySelector('.spied');
+        let $content_to_mark = document.querySelector('#main-content');
         if (window.location.hash !== '') {
           var $targetAnchor = document.querySelector(window.location.hash);
           if ($targetAnchor && $content_to_mark) {
