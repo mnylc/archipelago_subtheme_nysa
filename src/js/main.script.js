@@ -183,7 +183,7 @@ import Popover from 'bootstrap/js/dist/popover';
         }
       });
 
-      if ($(context).is('.view') || context == document) {
+      if ($(context).is('.view') || context === document) {
         /* Initialize Popovers */
         var popoverTriggerList = [].slice.call(context.querySelectorAll('[data-bs-toggle="popover"]'))
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {

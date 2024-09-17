@@ -3313,7 +3313,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
           });
         }
       });
-      if ($(context).is('.view') || context == document) {
+      if ($(context).is('.view') || context === document) {
         /* Initialize Popovers */
         var popoverTriggerList = [].slice.call(context.querySelectorAll('[data-bs-toggle="popover"]'));
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
