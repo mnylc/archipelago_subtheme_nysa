@@ -3172,8 +3172,9 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         if (window.location.hash !== '') {
           var $targetAnchor = document.querySelector(window.location.hash);
           if ($targetAnchor && $content_to_mark) {
-            var tabId = $targetAnchor.closest('.tab-pane').attr('id');
-            $content_to_mark.find('a[href=#' + tabId + ']').click();
+            if ($targetAnchor.type === "button") {
+              $targetAnchor.click();
+            }
           }
         }
         function extractAllText(str) {
