@@ -128,7 +128,16 @@ strong {
   background-color: var(--bs-yellow);
 }
 
+mark {
+  background-color: var(--bs-yellow);
+}
+
 .page-wrapper .sticky-top {
   z-index:501;
   top: var(--drupal-displace-offset-top, 0);
+}
+
+.views-filters {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
