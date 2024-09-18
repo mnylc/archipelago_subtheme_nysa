@@ -3221,7 +3221,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
         /* 128 here is very specific to this theme. Sorry! */
         var topCss = +element.css('top').replace('px', '');
-        if (topCss < 128 || topCss > 128) {
+        if (topCss <= 128 || topCss > 128) {
           element.css("top", "calc(128px + var(--drupal-displace-offset-top, 0))");
         }
         element.css("width", rect.width);
@@ -3248,7 +3248,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
         /* 128 here is very specific to this theme. Sorry! */
         var topCss = +element.css('top').replace('px', '');
-        if (topCss < 128 || topCss > 128) {
+        if (topCss <= 128 || topCss > 128) {
           element.css("top", "calc(128px +var(--drupal-displace-offset-top, 0))");
         }
         var scrollSpyContentEl = document.querySelector('body');
@@ -3362,14 +3362,14 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         }, {
           root: null,
           rootMargin: '0px 0px',
-          threshold: _toConsumableArray(Array(20).keys()).map(function (x) {
-            return x / 20;
+          threshold: _toConsumableArray(Array(40).keys()).map(function (x) {
+            return x / 40;
           })
         });
         var observerAfter = new IntersectionObserver(function (entries) {
           var ratio = entries[0].intersectionRatio;
           console.log("after" + ratio);
-          if (ratio == 1 && !passtThreasHold) {
+          if (ratio >= 0.8 && !passtThreasHold) {
             var $scrollspy = document.querySelector('.list-scrollspy');
             if ($scrollspy) {
               if ($scrollspy.classList.contains('list-scrollspy-fixed')) {
@@ -3378,7 +3378,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
                 $scrollspy.classList.remove('list-scrollspy-fixed');
               }
             }
-          } else if (ratio == 0 && passtThreasHold && document.querySelector("body").classList.contains('scrollup')) {
+          } else if (ratio <= 0.8 && passtThreasHold && document.querySelector("body").classList.contains('scrollup')) {
             var _$scrollspy3 = document.querySelector('.list-scrollspy');
             if (_$scrollspy3) {
               passtThreasHold = false;
