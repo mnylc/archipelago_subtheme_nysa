@@ -28,10 +28,8 @@ import Popover from 'bootstrap/js/dist/popover';
         }
         position = scroll;
       });
-      $(once('nysa-mark', '.list-scrollspy', context)).each(function () {
-        var ele = this;
-
-        let $content_to_mark = document.querySelector('#main-content');
+      $(once('nysa-mark', '.sbf-mark-highlight', context)).each(function () {
+        let $content_to_mark = this;
         if (window.location.hash !== '') {
           var $targetAnchor = document.querySelector(window.location.hash);
           if ($targetAnchor && $content_to_mark) {
@@ -53,14 +51,13 @@ import Popover from 'bootstrap/js/dist/popover';
 
         if ($content_to_mark) {
           let params = new URLSearchParams(window.location.search.slice(1));
-          console.log(params.get('search_api_fulltext'));
-          if (params.has('search_api_fulltext')) {
-            let search_api_fulltext = params.get('search_api_fulltext');
+          const mark_source_get_param = $content_to_mark?.dataset?.sbfMarkHighlightSource ? $content_to_mark.dataset.sbfMarkHighlightSource : 'search_api_fulltext';
+          console.log(params.get(mark_source_get_param));
+          if (params.has(mark_source_get_param)) {
+            let search_api_fulltext = params.get(mark_source_get_param);
             const pieces = extractAllText(search_api_fulltext);
             let markInstance = new Mark($content_to_mark);
-            console.log(pieces);
             pieces.forEach((item)=> {
-              console.log(item);
               markInstance.mark(item, {
                 "element": "strong",
                 "acrossElements": true,

@@ -3167,9 +3167,8 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         }
         position = scroll;
       });
-      $(once('nysa-mark', '.list-scrollspy', context)).each(function () {
-        var ele = this;
-        var $content_to_mark = document.querySelector('#main-content');
+      $(once('nysa-mark', '.sbf-mark-highlight', context)).each(function () {
+        var $content_to_mark = this;
         if (window.location.hash !== '') {
           var $targetAnchor = document.querySelector(window.location.hash);
           if ($targetAnchor && $content_to_mark) {
@@ -3187,15 +3186,15 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
           return result.length > 0 ? result : [str];
         }
         if ($content_to_mark) {
+          var _$content_to_mark$dat;
           var params = new URLSearchParams(window.location.search.slice(1));
-          console.log(params.get('search_api_fulltext'));
-          if (params.has('search_api_fulltext')) {
-            var search_api_fulltext = params.get('search_api_fulltext');
+          var mark_source_get_param = $content_to_mark !== null && $content_to_mark !== void 0 && (_$content_to_mark$dat = $content_to_mark.dataset) !== null && _$content_to_mark$dat !== void 0 && _$content_to_mark$dat.sbfMarkHighlightSource ? $content_to_mark.dataset.sbfMarkHighlightSource : 'search_api_fulltext';
+          console.log(params.get(mark_source_get_param));
+          if (params.has(mark_source_get_param)) {
+            var search_api_fulltext = params.get(mark_source_get_param);
             var pieces = extractAllText(search_api_fulltext);
             var markInstance = new Mark($content_to_mark);
-            console.log(pieces);
             pieces.forEach(function (item) {
-              console.log(item);
               markInstance.mark(item, {
                 "element": "strong",
                 "acrossElements": true,
