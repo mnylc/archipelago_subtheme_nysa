@@ -4,7 +4,7 @@ import ScrollSpy from 'bootstrap/js/dist/scrollspy';
 import Popover from 'bootstrap/js/dist/popover';
 
 // * Any other global site-wide JavaScript should be placed below.
-(function ($, Drupal) {
+(function ($, Drupal, once, Mark) {
 
   'use strict';
 
@@ -28,8 +28,15 @@ import Popover from 'bootstrap/js/dist/popover';
         }
         position = scroll;
       });
-      $(once('nysa-mark', '.sbf-mark-highlight', context)).each(function () {
-        let $content_to_mark = this;
+      const children_elements_to_once = context.querySelectorAll('.sbf-mark-highlight');
+      const context_is_element_to_once = context !== document && context.classList.contains('sbf-mark-highlight') ? context : [];
+      const $element_children = once('nysa', children_elements_to_once);
+      const $element_self = once('nysa', context_is_element_to_once);
+      $element_children.forEach(mark);
+      $element_self.forEach(mark);
+        function mark(element, index) {
+
+        let $content_to_mark = element;
         if (window.location.hash !== '') {
           var $targetAnchor = document.querySelector(window.location.hash);
           if ($targetAnchor && $content_to_mark) {
@@ -68,9 +75,10 @@ import Popover from 'bootstrap/js/dist/popover';
             });
           }
         }
-      })
+      };
     }
   };
+
   Drupal.behaviors.bootstrap_nysa_scrollspy = {
     attach: function (context, settings) {
       function SetFixedPositioning(ele) {
@@ -91,11 +99,11 @@ import Popover from 'bootstrap/js/dist/popover';
         }
         element.css("width",  rect.width);
         var scrollSpyContentEl = document.querySelector('body');
-        var scrollSpy = ScrollSpy.getInstance(scrollSpyContentEl);
-        if (scrollSpy == null) {
-          scrollSpy = new ScrollSpy(scrollSpyContentEl);
+        var scrollSpyInstance = ScrollSpy.getInstance(scrollSpyContentEl);
+        if (scrollSpyInstance == null) {
+          scrollSpyInstance = new ScrollSpy(scrollSpyContentEl);
         }
-        scrollSpy.refresh();
+        scrollSpyInstance.refresh();
       }
 
       function ResetFixedPositioning(ele) {
@@ -118,8 +126,10 @@ import Popover from 'bootstrap/js/dist/popover';
           element.css("top","calc(128px +var(--drupal-displace-offset-top, 0))");
         }
         var scrollSpyContentEl = document.querySelector('body');
-        var scrollSpy = ScrollSpy.getInstance(scrollSpyContentEl);
-        scrollSpy.refresh();
+        var scrollSpyInstance = ScrollSpy.getInstance(scrollSpyContentEl);
+        if (scrollSpyInstance) {
+          scrollSpyInstance.refresh();
+        }
       }
 
       function SetAbsolutePositioning(ele) {
@@ -127,7 +137,7 @@ import Popover from 'bootstrap/js/dist/popover';
         const scrollspy = document.querySelector('#main-content .list-scrollspy');
         if (spiedOn && scrollspy ) {
           var scrollSpyContentEl = document.querySelector('body');
-          var scrollSpy = ScrollSpy.getInstance(scrollSpyContentEl);
+          var scrollSpyInstance = ScrollSpy.getInstance(scrollSpyContentEl);
           let Realtop = spiedOn.clientHeight - scrollspy.clientHeight;
           let Observed = document.querySelector('div[data-component-id="archipelago_subtheme_nysa:page"] .page__header')
           let offsetRec = Observed.getBoundingClientRect()
@@ -139,7 +149,9 @@ import Popover from 'bootstrap/js/dist/popover';
             element.css("position", "absolute");
             element.css("left", "");
             element.css("top",(Realtop - 128) + 'px');
-            scrollSpy.refresh();
+            if (scrollSpyInstance) {
+              scrollSpyInstance.refresh();
+            }
           }
         }
         /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
@@ -286,4 +298,4 @@ import Popover from 'bootstrap/js/dist/popover';
     }
   }
 
-})(jQuery, Drupal, Mark);
+})(jQuery, Drupal, once, Mark);

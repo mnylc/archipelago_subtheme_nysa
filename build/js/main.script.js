@@ -3145,7 +3145,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
 
 
 // * Any other global site-wide JavaScript should be placed below.
-(function ($, Drupal) {
+(function ($, Drupal, once, Mark) {
   'use strict';
 
   Drupal.behaviors.bootstrap_nysa = {
@@ -3167,8 +3167,14 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         }
         position = scroll;
       });
-      $(once('nysa-mark', '.sbf-mark-highlight', context)).each(function () {
-        var $content_to_mark = this;
+      var children_elements_to_once = context.querySelectorAll('.sbf-mark-highlight');
+      var context_is_element_to_once = context !== document && context.classList.contains('sbf-mark-highlight') ? context : [];
+      var $element_children = once('nysa', children_elements_to_once);
+      var $element_self = once('nysa', context_is_element_to_once);
+      $element_children.forEach(mark);
+      $element_self.forEach(mark);
+      function mark(element, index) {
+        var $content_to_mark = element;
         if (window.location.hash !== '') {
           var $targetAnchor = document.querySelector(window.location.hash);
           if ($targetAnchor && $content_to_mark) {
@@ -3205,7 +3211,8 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
             });
           }
         }
-      });
+      }
+      ;
     }
   };
   Drupal.behaviors.bootstrap_nysa_scrollspy = {
@@ -3227,11 +3234,11 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         }
         element.css("width", rect.width);
         var scrollSpyContentEl = document.querySelector('body');
-        var scrollSpy = bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default().getInstance(scrollSpyContentEl);
-        if (scrollSpy == null) {
-          scrollSpy = new (bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default())(scrollSpyContentEl);
+        var scrollSpyInstance = bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default().getInstance(scrollSpyContentEl);
+        if (scrollSpyInstance == null) {
+          scrollSpyInstance = new (bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default())(scrollSpyContentEl);
         }
-        scrollSpy.refresh();
+        scrollSpyInstance.refresh();
       }
       function ResetFixedPositioning(ele) {
         var element = $(ele);
@@ -3253,15 +3260,17 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
           element.css("top", "calc(128px +var(--drupal-displace-offset-top, 0))");
         }
         var scrollSpyContentEl = document.querySelector('body');
-        var scrollSpy = bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default().getInstance(scrollSpyContentEl);
-        scrollSpy.refresh();
+        var scrollSpyInstance = bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default().getInstance(scrollSpyContentEl);
+        if (scrollSpyInstance) {
+          scrollSpyInstance.refresh();
+        }
       }
       function SetAbsolutePositioning(ele) {
         var spiedOn = document.querySelector('#main-content .spied');
         var scrollspy = document.querySelector('#main-content .list-scrollspy');
         if (spiedOn && scrollspy) {
           var scrollSpyContentEl = document.querySelector('body');
-          var scrollSpy = bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default().getInstance(scrollSpyContentEl);
+          var scrollSpyInstance = bootstrap_js_dist_scrollspy__WEBPACK_IMPORTED_MODULE_1___default().getInstance(scrollSpyContentEl);
           var Realtop = spiedOn.clientHeight - scrollspy.clientHeight;
           var Observed = document.querySelector('div[data-component-id="archipelago_subtheme_nysa:page"] .page__header');
           var offsetRec = Observed.getBoundingClientRect();
@@ -3273,7 +3282,9 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
             element.css("position", "absolute");
             element.css("left", "");
             element.css("top", Realtop - 128 + 'px');
-            scrollSpy.refresh();
+            if (scrollSpyInstance) {
+              scrollSpyInstance.refresh();
+            }
           }
         }
         /* For some reason when the page starts already scrolled, the offset v/s the top property are all messed up */
@@ -3409,7 +3420,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
       });
     }
   };
-})(jQuery, Drupal, Mark);
+})(jQuery, Drupal, once, Mark);
 
 /***/ }),
 
