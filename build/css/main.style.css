@@ -116,6 +116,161 @@ mark, .mark {
   padding-bottom: 0.5rem;
 }
 
+#drupal-off-canvas-wrapper > div:not(.ui-resizable-handle, .ui-dialog-titlebar) *:where(:not(details *, [data-drupal-messages] *, svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)),
+#drupal-off-canvas-wrapper *:where(.ui-dialog-titlebar *:not(svg, svg *)) {
+  all: revert;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+}
+
+#drupal-off-canvas-wrapper > div:not(.ui-resizable-handle, .ui-dialog-titlebar) *:where(:not(details *, [data-drupal-messages] *, svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)):after,
+#drupal-off-canvas-wrapper > div:not(.ui-resizable-handle, .ui-dialog-titlebar) *:where(:not(details *, [data-drupal-messages] *, svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)):before,
+#drupal-off-canvas-wrapper *:where(.ui-dialog-titlebar *:not(svg, svg *)):before,
+#drupal-off-canvas-wrapper *:where(.ui-dialog-titlebar *:not(svg, svg *)):after {
+  all: revert;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/**
+ * Set base styles for the off-canvas dialog.
+ * @internal
+
+
+#drupal-off-canvas-wrapper *:where(:not(svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)) {
+  all: revert;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+}
+
+#drupal-off-canvas-wrapper *:where(:not(svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)):after,
+#drupal-off-canvas-wrapper *:where(:not(svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)):before {
+  all: revert;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+*/
+#drupal-off-canvas-wrapper *:not(details) a,
+#drupal-off-canvas-wrapper *:not(details) .link {
+  text-decoration: none;
+  color: var(--off-canvas-link-color);
+}
+
+#drupal-off-canvas-wrapper *:not(details) hr {
+  height: 1px;
+  background: var(--off-canvas-border-color);
+}
+
+#drupal-off-canvas-wrapper *:not(details) h1, #drupal-off-canvas-wrapper *:not(details) .h1,
+#drupal-off-canvas-wrapper .heading-a {
+  font-size: 1.4375rem;
+  line-height: 1.2;
+}
+
+#drupal-off-canvas-wrapper *:not(details) h2, #drupal-off-canvas-wrapper *:not(details) .h2,
+#drupal-off-canvas-wrapper .heading-b {
+  margin: var(--off-canvas-vertical-spacing-unit) 0;
+  font-size: 1.1875rem;
+}
+
+#drupal-off-canvas-wrapper *:not(details) h3, #drupal-off-canvas-wrapper *:not(details) .h3,
+#drupal-off-canvas-wrapper .heading-c {
+  margin: var(--off-canvas-vertical-spacing-unit) 0;
+  /* font-size: 1.0625rem; */
+}
+
+#drupal-off-canvas-wrapper *:not(details) h4, #drupal-off-canvas-wrapper *:not(details) .h4,
+#drupal-off-canvas-wrapper .heading-d {
+  margin: var(--off-canvas-vertical-spacing-unit) 0;
+  font-size: 1rem;
+}
+
+#drupal-off-canvas-wrapper *:not(details) h5, #drupal-off-canvas-wrapper *:not(details) .h5,
+#drupal-off-canvas-wrapper .heading-e,
+#drupal-off-canvas-wrapper *:not(details) h6,
+#drupal-off-canvas-wrapper *:not(details) .h6,
+#drupal-off-canvas-wrapper .heading-f {
+  margin: var(--off-canvas-vertical-spacing-unit) 0;
+  font-size: 0.9375rem;
+}
+
+#drupal-off-canvas-wrapper *:not(details) p {
+  margin: var(--off-canvas-vertical-spacing-unit) 0;
+}
+
+#drupal-off-canvas-wrapper *:not(details) img {
+  max-width: 100%;
+  height: auto;
+}
+
+#drupal-off-canvas-wrapper *:not(details) .links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#drupal-off-canvas-wrapper *:not(details) .links li {
+  margin: calc(var(--off-canvas-vertical-spacing-unit) / 2) 0;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper summary {
+  margin: 1rem 0.5rem;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper .fieldset, .archipelago-subtheme-nysa #drupal-off-canvas-wrapper fieldset {
+  border: none;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper {
+  --off-canvas-vertical-spacing-unit: 0.5rem;
+  --off-canvas-padding: 0rem;
+  --off-canvas-focus-outline-width: 2px;
+  padding: 0 var(--off-canvas-padding) var(--off-canvas-padding);
+  --off-canvas-first-cell-padding-start: 0.5rem;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table {
+  --bs-table-bg: var(--off-canvas-background-color-dark);
+}
+
+archipelago-subtheme-nysa #drupal-off-canvas-wrapper details {
+  --off-canvas-padding: 1.25rem;
+  --off-canvas-vertical-spacing-unit: 0.5rem;
+  --off-canvas-details-border-width: 0;
+  --off-canvas-details-summary-padding: 0.625rem 1.25rem;
+  --off-canvas-details-summary-font-size: 0.875rem;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper tr {
+  border-bottom: none;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper th:first-child {
+  --off-canvas-table-cell-padding: 2px;
+  display: flex;
+  align-items: center;
+  min-height: 3.125rem;
+  gap: var(--off-canvas-table-cell-padding);
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table tr th,
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table tr th a,
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table tr th a:hover,
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table tr th a:focus {
+  color: var(--off-canvas-background-color-light);
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper .table > :not(caption) > * > td {
+  background-color: unset;
+}
+
 /**
  * Variables
  * Variables should follow the $component-state-property-size formula for
@@ -230,6 +385,161 @@ mark, .mark {
 .view-filters {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+#drupal-off-canvas-wrapper > div:not(.ui-resizable-handle, .ui-dialog-titlebar) *:where(:not(details *, [data-drupal-messages] *, svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)),
+#drupal-off-canvas-wrapper *:where(.ui-dialog-titlebar *:not(svg, svg *)) {
+  all: revert;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+}
+
+#drupal-off-canvas-wrapper > div:not(.ui-resizable-handle, .ui-dialog-titlebar) *:where(:not(details *, [data-drupal-messages] *, svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)):after,
+#drupal-off-canvas-wrapper > div:not(.ui-resizable-handle, .ui-dialog-titlebar) *:where(:not(details *, [data-drupal-messages] *, svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)):before,
+#drupal-off-canvas-wrapper *:where(.ui-dialog-titlebar *:not(svg, svg *)):before,
+#drupal-off-canvas-wrapper *:where(.ui-dialog-titlebar *:not(svg, svg *)):after {
+  all: revert;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/**
+ * Set base styles for the off-canvas dialog.
+ * @internal
+
+
+#drupal-off-canvas-wrapper *:where(:not(svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)) {
+  all: revert;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+}
+
+#drupal-off-canvas-wrapper *:where(:not(svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)):after,
+#drupal-off-canvas-wrapper *:where(:not(svg, svg *, .ck-reset *, [data-drupal-ck-style-fence] *, .ui-resizable-handle)):before {
+  all: revert;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+*/
+#drupal-off-canvas-wrapper *:not(details) a,
+#drupal-off-canvas-wrapper *:not(details) .link {
+  text-decoration: none;
+  color: var(--off-canvas-link-color);
+}
+
+#drupal-off-canvas-wrapper *:not(details) hr {
+  height: 1px;
+  background: var(--off-canvas-border-color);
+}
+
+#drupal-off-canvas-wrapper *:not(details) h1, #drupal-off-canvas-wrapper *:not(details) .h1,
+#drupal-off-canvas-wrapper .heading-a {
+  font-size: 1.4375rem;
+  line-height: 1.2;
+}
+
+#drupal-off-canvas-wrapper *:not(details) h2, #drupal-off-canvas-wrapper *:not(details) .h2,
+#drupal-off-canvas-wrapper .heading-b {
+  margin: var(--off-canvas-vertical-spacing-unit) 0;
+  font-size: 1.1875rem;
+}
+
+#drupal-off-canvas-wrapper *:not(details) h3, #drupal-off-canvas-wrapper *:not(details) .h3,
+#drupal-off-canvas-wrapper .heading-c {
+  margin: var(--off-canvas-vertical-spacing-unit) 0;
+  /* font-size: 1.0625rem; */
+}
+
+#drupal-off-canvas-wrapper *:not(details) h4, #drupal-off-canvas-wrapper *:not(details) .h4,
+#drupal-off-canvas-wrapper .heading-d {
+  margin: var(--off-canvas-vertical-spacing-unit) 0;
+  font-size: 1rem;
+}
+
+#drupal-off-canvas-wrapper *:not(details) h5, #drupal-off-canvas-wrapper *:not(details) .h5,
+#drupal-off-canvas-wrapper .heading-e,
+#drupal-off-canvas-wrapper *:not(details) h6,
+#drupal-off-canvas-wrapper *:not(details) .h6,
+#drupal-off-canvas-wrapper .heading-f {
+  margin: var(--off-canvas-vertical-spacing-unit) 0;
+  font-size: 0.9375rem;
+}
+
+#drupal-off-canvas-wrapper *:not(details) p {
+  margin: var(--off-canvas-vertical-spacing-unit) 0;
+}
+
+#drupal-off-canvas-wrapper *:not(details) img {
+  max-width: 100%;
+  height: auto;
+}
+
+#drupal-off-canvas-wrapper *:not(details) .links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#drupal-off-canvas-wrapper *:not(details) .links li {
+  margin: calc(var(--off-canvas-vertical-spacing-unit) / 2) 0;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper summary {
+  margin: 1rem 0.5rem;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper .fieldset, .archipelago-subtheme-nysa #drupal-off-canvas-wrapper fieldset {
+  border: none;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper {
+  --off-canvas-vertical-spacing-unit: 0.5rem;
+  --off-canvas-padding: 0rem;
+  --off-canvas-focus-outline-width: 2px;
+  padding: 0 var(--off-canvas-padding) var(--off-canvas-padding);
+  --off-canvas-first-cell-padding-start: 0.5rem;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table {
+  --bs-table-bg: var(--off-canvas-background-color-dark);
+}
+
+archipelago-subtheme-nysa #drupal-off-canvas-wrapper details {
+  --off-canvas-padding: 1.25rem;
+  --off-canvas-vertical-spacing-unit: 0.5rem;
+  --off-canvas-details-border-width: 0;
+  --off-canvas-details-summary-padding: 0.625rem 1.25rem;
+  --off-canvas-details-summary-font-size: 0.875rem;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper tr {
+  border-bottom: none;
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper th:first-child {
+  --off-canvas-table-cell-padding: 2px;
+  display: flex;
+  align-items: center;
+  min-height: 3.125rem;
+  gap: var(--off-canvas-table-cell-padding);
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table tr th,
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table tr th a,
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table tr th a:hover,
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper table tr th a:focus {
+  color: var(--off-canvas-background-color-light);
+}
+
+.archipelago-subtheme-nysa #drupal-off-canvas-wrapper .table > :not(caption) > * > td {
+  background-color: unset;
 }
 
 :root,

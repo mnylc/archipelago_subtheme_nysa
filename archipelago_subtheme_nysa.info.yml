@@ -26,6 +26,12 @@ libraries:
   - archipelago_subtheme_nysa/style
 ckeditor5-stylesheets:
   - build/css/main.style.css
+libraries-override:
+  core/drupal.dialog.off_canvas:
+    css:
+      base:
+        misc/dialog/off-canvas/css/reset.css: false
+        misc/dialog/off-canvas/css/base.css: false
 libraries-extend:
   core/drupal.ajax:
     - archipelago_subtheme_nysa/drupal.ajax
