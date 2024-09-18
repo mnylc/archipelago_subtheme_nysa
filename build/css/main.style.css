@@ -111,7 +111,7 @@ mark, .mark {
   top: var(--drupal-displace-offset-top, 0);
 }
 
-.views-filters {
+.view-filters {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -227,7 +227,7 @@ mark, .mark {
   top: var(--drupal-displace-offset-top, 0);
 }
 
-.views-filters {
+.view-filters {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
