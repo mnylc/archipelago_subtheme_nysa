@@ -26,8 +26,54 @@
  * @see template_preprocess_block()
  */
 #}
-{% include 'radix:block' with {
+{#  include 'radix:block' with {
   block_utility_classes: [
    'bg-light', 'p-2', 'mb-3'
   ],
-}%}
+}}
+#}
+{%
+  set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+  'accordion',
+  'p-2',
+  'mb-3'
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% if content[0]['#attributes']['class'] is defined and 'facet-active' in content[0]['#attributes']['class'] %}
+    {% set collapsed_class = ' show' %}
+    {% set collapsed_button_class = null %}
+  {% else %}
+    {% set collapsed_class = null %}
+    {% set collapsed_button_class = ' collapsed' %}
+  {% endif %}
+  {% if content[0]["#facet"] is not defined %}
+    {% set collapsed_class = ' show' %}
+    {% set collapsed_button_class = null %}
+  {% endif %}
+  <div class="accordion-item">
+    {#  Title suffix is used to add the contextual link. This way it does not get in the way of the accordion! #}
+    {{ title_suffix }}
+    <div class="accordion-header bg-light" id="{{attributes.id ~ '-heading'}}">
+      <button class="accordion-button{{ collapsed_button_class }}" type="button" data-bs-toggle="collapse" data-bs-target="#{{attributes.id ~ '-body'}}" aria-expanded="true" aria-controls="{{attributes.id ~ '-heading'}}">
+        {{ title_prefix }}
+        {% if label %}
+          <span{{ title_attributes }}>{{ label }}</span>
+        {% endif %}
+      </button>
+    </div>
+    <div id="{{attributes.id ~ '-body'}}" class="accordion-collapse collapse{{ collapsed_class }}" aria-labelledby="{{attributes.id ~'-heading'}}">
+      <div class="accordion-body bg-light">
+        {% block content %}
+          <div{{ content_attributes.addClass('content') }}>
+            {{ content }}
+          </div>
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+
