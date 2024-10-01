@@ -17,6 +17,10 @@
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
+a {
+  font-family: "Raleway", sans-serif;
+}
+
 #main-content-wrapper {
   min-height: calc(100vh - 300px);
   height: auto !important;
@@ -288,6 +292,10 @@ mark, .mark {
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
+a {
+  font-family: "Raleway", sans-serif;
+}
+
 #main-content-wrapper {
   min-height: calc(100vh - 300px);
   height: auto !important;
