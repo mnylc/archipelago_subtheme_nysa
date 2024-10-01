@@ -29,7 +29,7 @@
     <h3>{{ title }}</h3>
   {%- endif -%}
   {%- if items -%}
-    <{{ list_type }}{{ attributes.addClass('facet-summary') }}>
+    <{{ list_type }}{{ attributes.addClass('facet-summary','ms-0','ps-0') }}>
       {%- for item in items -%}
         {%- if item.value['#theme'] is defined and (item.value['#theme'] == 'facets_summary_count' or item.value['#theme'] == 'facets_summary_empty') -%}
           <li{{ item.attributes.addClass('facet-summary-item--count','me-1')}}>

@@ -17,6 +17,13 @@
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
+.btn-primary a {
+  color: #dfeaf3;
+}
+.btn-primary ahover {
+  color: rgba(223, 234, 243, 0.75);
+}
+
 a {
   font-family: "Raleway", sans-serif;
 }
@@ -292,6 +299,13 @@ mark, .mark {
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
+.btn-primary a {
+  color: #dfeaf3;
+}
+.btn-primary ahover {
+  color: rgba(223, 234, 243, 0.75);
+}
+
 a {
   font-family: "Raleway", sans-serif;
 }
