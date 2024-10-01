@@ -32,6 +32,14 @@
   ],
 }}
 #}
+{%  if '-front' in plugin_id  %}
+{% include 'radix:block' with {
+block_utility_classes: [
+'bg-light', 'p-2', 'mb-3'
+],
+}
+%}
+{%  else %}
 {%
   set classes = [
   'block',
@@ -76,4 +84,5 @@
     </div>
   </div>
 </div>
+{% endif %}
 
