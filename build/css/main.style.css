@@ -17,10 +17,10 @@
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
-.btn-primary a {
+.btn-primary a, .btn-tertiary a {
   color: #dfeaf3;
 }
-.btn-primary ahover {
+.btn-primary ahover, .btn-tertiary ahover {
   color: rgba(223, 234, 243, 0.75);
 }
 
@@ -299,10 +299,10 @@ mark, .mark {
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
-.btn-primary a {
+.btn-primary a, .btn-tertiary a {
   color: #dfeaf3;
 }
-.btn-primary ahover {
+.btn-primary ahover, .btn-tertiary ahover {
   color: rgba(223, 234, 243, 0.75);
 }
 
