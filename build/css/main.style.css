@@ -110,8 +110,11 @@ div[data-drupal-selector=edit-actions] {
 }
 
 strong {
-  margin-right: 0.25rem;
   background-color: var(--bs-yellow);
+}
+
+.views-field-search-api-excerpt strong {
+  margin-right: 0.25rem;
 }
 
 mark, .mark {
@@ -392,8 +395,11 @@ div[data-drupal-selector=edit-actions] {
 }
 
 strong {
-  margin-right: 0.25rem;
   background-color: var(--bs-yellow);
+}
+
+.views-field-search-api-excerpt strong {
+  margin-right: 0.25rem;
 }
 
 mark, .mark {

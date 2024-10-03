@@ -134,7 +134,6 @@ div[data-drupal-selector="edit-actions"] {
   align-self:flex-end
 }
 
-
 .d-flex.hidden {
   display: none !important;
 }
@@ -142,8 +141,12 @@ div[data-drupal-selector="edit-actions"] {
   display: none !important;
 }
 strong {
-  margin-right: 0.25rem;
   background-color: var(--bs-yellow);
+}
+.views-field-search-api-excerpt {
+  strong {
+    margin-right: 0.25rem;
+  }
 }
 
 mark {
