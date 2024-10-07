@@ -3176,10 +3176,14 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
       function mark(element, index) {
         var $content_to_mark = element;
         if (window.location.hash !== '') {
-          var $targetAnchor = document.querySelector(window.location.hash);
+          var $targetAnchor = context.querySelector(window.location.hash);
           if ($targetAnchor && $content_to_mark) {
             if ($targetAnchor.type === "button") {
-              $targetAnchor.click();
+              // By once-ing it we won't keep hitting it.
+              var $targetAnchor_once = once('nysa', $targetAnchor);
+              $targetAnchor_once.forEach(function (ele) {
+                ele.click();
+              });
             }
           }
         }

@@ -38,10 +38,14 @@ import Popover from 'bootstrap/js/dist/popover';
 
         let $content_to_mark = element;
         if (window.location.hash !== '') {
-          var $targetAnchor = document.querySelector(window.location.hash);
+          var $targetAnchor = context.querySelector(window.location.hash);
           if ($targetAnchor && $content_to_mark) {
             if ($targetAnchor.type === "button") {
-              $targetAnchor.click();
+              // By once-ing it we won't keep hitting it.
+              const $targetAnchor_once = once('nysa', $targetAnchor);
+              $targetAnchor_once.forEach(function (ele) {
+                ele.click();
+              });
             }
           }
         }
