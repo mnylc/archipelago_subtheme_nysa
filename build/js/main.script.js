@@ -3188,7 +3188,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
           }
         }
         function extractAllText(str) {
-          var re = /"(.*?)"/g;
+          var re = /(?:[^\s"]+|"[^"]*")+/g;
           var result = [];
           var current;
           while (current = re.exec(str)) {
@@ -3206,6 +3206,15 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
             var pieces = extractAllText(search_api_fulltext);
             var markInstance = new Mark($content_to_mark);
             pieces.forEach(function (item) {
+              var re = /"(.*?)"/g;
+              var result = [];
+              var current;
+              while (current = re.exec(item)) {
+                result.push(current.pop());
+              }
+              if (result.length > 0) {
+                item = result[0];
+              }
               markInstance.mark(item, {
                 "element": "strong",
                 "acrossElements": true,

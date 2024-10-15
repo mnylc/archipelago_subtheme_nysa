@@ -50,7 +50,7 @@ import Popover from 'bootstrap/js/dist/popover';
           }
         }
         function extractAllText(str){
-          const re = /"(.*?)"/g;
+          const re = /(?:[^\s"]+|"[^"]*")+/g;
           const result = [];
           let current;
           while (current = re.exec(str)) {
@@ -70,6 +70,15 @@ import Popover from 'bootstrap/js/dist/popover';
             const pieces = extractAllText(search_api_fulltext);
             let markInstance = new Mark($content_to_mark);
             pieces.forEach((item)=> {
+              const re = /"(.*?)"/g;
+              const result = [];
+              let current;
+              while (current = re.exec(item)) {
+                result.push(current.pop());
+              }
+              if (result.length > 0) {
+                item = result[0];
+              }
               markInstance.mark(item, {
                 "element": "strong",
                 "acrossElements": true,
