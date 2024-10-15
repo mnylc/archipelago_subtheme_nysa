@@ -1,0 +1,8 @@
+.form-label {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  padding-right: 0.2rem;
+}
+
+/*# sourceMappingURL=form-element--label.css.map*/

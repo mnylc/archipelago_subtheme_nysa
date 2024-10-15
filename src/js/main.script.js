@@ -74,7 +74,7 @@ import Popover from 'bootstrap/js/dist/popover';
                 "element": "strong",
                 "acrossElements": true,
                 "diacritics": true,
-                "separateWordSearch": true,
+                "separateWordSearch": false,
               });
             });
           }

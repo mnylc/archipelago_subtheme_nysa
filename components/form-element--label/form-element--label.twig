@@ -14,4 +14,17 @@
  * @ingroup themeable
  */
 #}
-{% include "archipelago_subtheme_nysa:form-element--label" %}
+{%
+  set classes = [
+    title_display == 'after' ? 'form-check-label',
+    title_display == 'invisible' ? 'visually-hidden',
+    'flex-fill',
+    'd-flex',
+    'flex-nowrap',
+    required ? 'js-form-required',
+    required ? 'form-required',
+  ]
+%}
+{% if title is not empty or required -%}
+  <label {{ attributes.addClass(classes) }}>{{ title }}</label>
+{%- endif %}

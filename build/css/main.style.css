@@ -17,6 +17,17 @@
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
+.visually-hidden, .advanced-search-box .views-exposed-form .form-row fieldset.form-wrapper label {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .btn-primary a, .btn-secondary a {
   color: #dfeaf3;
 }
@@ -99,6 +110,10 @@ div[data-drupal-selector=edit-actions] {
 
 .form-row .form-actions {
   align-self: flex-end;
+}
+
+#main-content .form-modal {
+  margin-bottom: 0.5rem;
 }
 
 .d-flex.hidden {
@@ -302,6 +317,17 @@ mark, .mark {
  * $body-bg: #000;
  * $body-color: $gray-100;
  */
+.visually-hidden, .advanced-search-box .views-exposed-form .form-row fieldset.form-wrapper label {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .btn-primary a, .btn-secondary a {
   color: #dfeaf3;
 }
@@ -384,6 +410,10 @@ div[data-drupal-selector=edit-actions] {
 
 .form-row .form-actions {
   align-self: flex-end;
+}
+
+#main-content .form-modal {
+  margin-bottom: 0.5rem;
 }
 
 .d-flex.hidden {
