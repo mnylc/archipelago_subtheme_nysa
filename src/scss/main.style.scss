@@ -9,3 +9,20 @@
 @import "base/functions";
 @import "base/helpers";
 @import "base/typography";
+
+footer {
+  min-height: 300px;
+  height: fit-content;
+}
+#push-footer {
+  min-height: 300px;
+}
+@include media-breakpoint-down(md) {
+  #push-footer {
+    min-height: 600px;
+  }
+  footer {
+    min-height: 600px;
+    height: fit-content;
+  }
+}

@@ -45,14 +45,6 @@ a {
   margin: 0 auto -300px;
 }
 
-footer {
-  height: 300px;
-}
-
-#push-footer {
-  height: 300px;
-}
-
 .block-system-branding-block {
   margin-top: -0.5rem;
   margin-bottom: -0.5rem;
@@ -376,14 +368,6 @@ a {
   min-height: calc(100vh - 300px);
   height: auto !important;
   margin: 0 auto -300px;
-}
-
-footer {
-  height: 300px;
-}
-
-#push-footer {
-  height: 300px;
 }
 
 .block-system-branding-block {
@@ -12855,6 +12839,29 @@ textarea.form-control-lg {
   min-height: 1em;
   background-color: currentcolor;
   opacity: 0.25;
+}
+
+footer {
+  min-height: 300px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+#push-footer {
+  min-height: 300px;
+}
+
+@media (max-width: 767.98px) {
+  #push-footer {
+    min-height: 600px;
+  }
+  footer {
+    min-height: 600px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
 }
 
 /*# sourceMappingURL=main.style.css.map*/
