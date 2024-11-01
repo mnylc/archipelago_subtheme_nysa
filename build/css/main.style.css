@@ -133,7 +133,7 @@ div[data-drupal-selector=edit-actions] {
   max-width: none;
 }
 
-.form-no-label {
+.form-row > div.form-no-label {
   max-with: 0px;
 }
 
@@ -462,7 +462,7 @@ div[data-drupal-selector=edit-actions] {
   max-width: none;
 }
 
-.form-no-label {
+.form-row > div.form-no-label {
   max-with: 0px;
 }
 
@@ -12866,7 +12866,6 @@ footer {
     padding-left: 0;
     flex: 1 1 auto;
     width: auto;
-    max-width: none;
   }
   footer {
     min-height: 1000px;
