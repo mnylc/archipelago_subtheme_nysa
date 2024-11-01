@@ -12849,15 +12849,12 @@ footer {
 }
 
 #push-footer {
-  min-height: 300px;
+  height: 300px;
 }
 
 @media (max-width: 767.98px) {
-  #push-footer {
-    min-height: 600px;
-  }
   footer {
-    min-height: 600px;
+    min-height: 1000px;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
