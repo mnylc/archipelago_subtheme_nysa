@@ -169,7 +169,12 @@ div[data-drupal-selector="edit-actions"] {
   width: auto;
 }
 .form-row > div.form-no-label  {
-  max-with: 0px;
+  width: 1px;
+  max-width: 1px;
+ .form-label {
+   width: 1px;
+   max-width: 1px;
+ }
 }
 .form-row .form-actions {
   -webkit-align-self: flex-end;

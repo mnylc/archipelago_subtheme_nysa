@@ -133,7 +133,12 @@ div[data-drupal-selector=edit-actions] {
 }
 
 .form-row > div.form-no-label {
-  max-with: 0px;
+  width: 1px;
+  max-width: 1px;
+}
+.form-row > div.form-no-label .form-label {
+  width: 1px;
+  max-width: 1px;
 }
 
 .form-row .form-actions {
@@ -461,7 +466,12 @@ div[data-drupal-selector=edit-actions] {
 }
 
 .form-row > div.form-no-label {
-  max-with: 0px;
+  width: 1px;
+  max-width: 1px;
+}
+.form-row > div.form-no-label .form-label {
+  width: 1px;
+  max-width: 1px;
 }
 
 .form-row .form-actions {
