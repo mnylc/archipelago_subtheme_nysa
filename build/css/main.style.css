@@ -12872,7 +12872,7 @@ footer {
   .form-row > div, .form-row > fieldset {
     padding-right: 0;
     padding-left: 0;
-    flex: 1 1 auto;
+    /* flex: 1 1 auto; */
     width: auto;
   }
   footer {
