@@ -3200,7 +3200,6 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
           var _$content_to_mark$dat;
           var params = new URLSearchParams(window.location.search.slice(1));
           var mark_source_get_param = $content_to_mark !== null && $content_to_mark !== void 0 && (_$content_to_mark$dat = $content_to_mark.dataset) !== null && _$content_to_mark$dat !== void 0 && _$content_to_mark$dat.sbfMarkHighlightSource ? $content_to_mark.dataset.sbfMarkHighlightSource : 'search_api_fulltext';
-          console.log(params.get(mark_source_get_param));
           if (params.has(mark_source_get_param)) {
             var search_api_fulltext = params.get(mark_source_get_param);
             var pieces = extractAllText(search_api_fulltext);
@@ -3359,7 +3358,6 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         var passtThreasHold = false;
         var observer = new IntersectionObserver(function (entries) {
           var ratio = entries[0].intersectionRatio;
-          console.log(ratio);
           if (ratio < 0.1) {
             var $scrollspy = document.querySelector('.list-scrollspy');
             if ($scrollspy) {
@@ -3401,7 +3399,6 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         });
         var observerAfter = new IntersectionObserver(function (entries) {
           var ratio = entries[0].intersectionRatio;
-          console.log("after" + ratio);
           if (ratio >= 0.8 && !passtThreasHold) {
             var $scrollspy = document.querySelector('.list-scrollspy');
             if ($scrollspy) {

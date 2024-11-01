@@ -64,7 +64,6 @@ import Popover from 'bootstrap/js/dist/popover';
         if ($content_to_mark) {
           let params = new URLSearchParams(window.location.search.slice(1));
           const mark_source_get_param = $content_to_mark?.dataset?.sbfMarkHighlightSource ? $content_to_mark.dataset.sbfMarkHighlightSource : 'search_api_fulltext';
-          console.log(params.get(mark_source_get_param));
           if (params.has(mark_source_get_param)) {
             let search_api_fulltext = params.get(mark_source_get_param);
             const pieces = extractAllText(search_api_fulltext);
@@ -230,7 +229,7 @@ import Popover from 'bootstrap/js/dist/popover';
 
             var observer = new IntersectionObserver(function (entries) {
               const ratio = entries[0].intersectionRatio;
-              console.log(ratio);
+
               if (ratio < 0.1) {
                 let $scrollspy = document.querySelector('.list-scrollspy');
                 if ($scrollspy) {
@@ -274,7 +273,7 @@ import Popover from 'bootstrap/js/dist/popover';
 
             var observerAfter = new IntersectionObserver(function (entries) {
               const ratio = entries[0].intersectionRatio;
-              console.log("after" + ratio)
+
               if (ratio >= 0.8 && !passtThreasHold) {
                 let $scrollspy = document.querySelector('.list-scrollspy');
                 if ($scrollspy) {
