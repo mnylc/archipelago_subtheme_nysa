@@ -115,7 +115,7 @@ div[data-drupal-selector="edit-actions"] {
           }
           .js-form-item {
             display: flex;
-            flex-grow: 1;
+            flex-grow: 1 !important;
           }
         }
       }

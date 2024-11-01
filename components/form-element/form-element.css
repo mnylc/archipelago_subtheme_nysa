@@ -91,7 +91,7 @@ div[data-drupal-selector=edit-actions] {
 }
 .views-exposed-form.advanced-search-box .form-row fieldset.form-wrapper .js-form-item {
   display: flex;
-  flex-grow: 1;
+  flex-grow: 1 !important;
 }
 
 .advanced-search-box .views-exposed-form .form-row {
