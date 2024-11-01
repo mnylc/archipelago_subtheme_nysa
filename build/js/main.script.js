@@ -3279,6 +3279,8 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
           if (scrollSpyInstance) {
             scrollSpyInstance.refresh();
           }
+        } else {
+          UnSetFixedPositioning(ele);
         }
       }
       function SetAbsolutePositioning(ele) {
@@ -3313,13 +3315,11 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         }
       }
       function UnSetFixedPositioning(ele) {
-        if (!window.matchMedia("(max-width: 991px)").matches) {
-          var element = $(ele);
-          element.css("position", "");
-          element.css("left", "");
-          element.css("top", "");
-          element.css("width", "");
-        }
+        var element = $(ele);
+        element.css("position", "");
+        element.css("left", "");
+        element.css("top", "");
+        element.css("width", "");
       }
       /* resize needs to be aware of this offset.
                Can't be any offset.

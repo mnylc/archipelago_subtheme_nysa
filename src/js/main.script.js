@@ -146,6 +146,9 @@ import Popover from 'bootstrap/js/dist/popover';
             scrollSpyInstance.refresh();
           }
         }
+        else {
+          UnSetFixedPositioning(ele);
+        }
       }
 
       function SetAbsolutePositioning(ele) {
@@ -181,13 +184,11 @@ import Popover from 'bootstrap/js/dist/popover';
       }
 
       function UnSetFixedPositioning(ele) {
-        if (!window.matchMedia("(max-width: 991px)").matches) {
           let element = $(ele);
           element.css("position", "");
           element.css("left", "");
           element.css("top", "");
           element.css("width", "");
-        }
       }
       /* resize needs to be aware of this offset.
                Can't be any offset.
