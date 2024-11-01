@@ -12853,6 +12853,13 @@ footer {
 }
 
 @media (max-width: 767.98px) {
+  .form-row > div, .form-row > fieldset {
+    padding-right: 0;
+    padding-left: 0;
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+  }
   footer {
     min-height: 1000px;
     height: -webkit-fit-content;
