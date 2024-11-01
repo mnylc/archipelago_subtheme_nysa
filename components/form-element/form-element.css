@@ -94,7 +94,7 @@ div[data-drupal-selector=edit-actions] {
   flex-grow: 1 !important;
 }
 
-.advanced-search-box .views-exposed-form a[data-advanced-search-addone=true], .advanced-search-box .views-exposed-form a[data-advanced-search-delone=true] {
+.advanced-search-box .adv-search-addone, .advanced-search-box .adv-search-delone {
   font-size: 2rem;
   line-height: 0.75;
 }
