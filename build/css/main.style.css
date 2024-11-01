@@ -130,7 +130,6 @@ div[data-drupal-selector=edit-actions] {
   padding-left: 0.3125rem;
   flex: 0 1 auto;
   width: auto;
-  max-width: none;
 }
 
 .form-row > div.form-no-label {
@@ -459,7 +458,6 @@ div[data-drupal-selector=edit-actions] {
   padding-left: 0.3125rem;
   flex: 0 1 auto;
   width: auto;
-  max-width: none;
 }
 
 .form-row > div.form-no-label {
