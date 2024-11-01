@@ -130,6 +130,10 @@ div[data-drupal-selector=edit-actions] {
   max-width: none;
 }
 
+.form-no-label {
+  max-with: 0px;
+}
+
 .form-row .form-actions {
   align-self: flex-end;
 }
