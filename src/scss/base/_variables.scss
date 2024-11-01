@@ -126,6 +126,11 @@ div[data-drupal-selector="edit-actions"] {
 
 .advanced-search-box {
   .views-exposed-form {
+    a[data-advanced-search-addone="true"],a[ data-advanced-search-delone="true"] {
+      font-size: 2rem;
+      line-height: 0.75;
+    }
+
     .form-row {
       min-height: 0;
       width: 100%;

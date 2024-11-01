@@ -97,6 +97,10 @@ div[data-drupal-selector=edit-actions] {
   flex-grow: 1 !important;
 }
 
+.advanced-search-box .views-exposed-form a[data-advanced-search-addone=true], .advanced-search-box .views-exposed-form a[data-advanced-search-delone=true] {
+  font-size: 2rem;
+  line-height: 0.75;
+}
 .advanced-search-box .views-exposed-form .form-row {
   min-height: 0;
   width: 100%;
@@ -430,6 +434,10 @@ div[data-drupal-selector=edit-actions] {
   flex-grow: 1 !important;
 }
 
+.advanced-search-box .views-exposed-form a[data-advanced-search-addone=true], .advanced-search-box .views-exposed-form a[data-advanced-search-delone=true] {
+  font-size: 2rem;
+  line-height: 0.75;
+}
 .advanced-search-box .views-exposed-form .form-row {
   min-height: 0;
   width: 100%;
