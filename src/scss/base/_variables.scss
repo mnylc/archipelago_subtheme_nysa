@@ -169,11 +169,13 @@ div[data-drupal-selector="edit-actions"] {
   width: auto;
 }
 .form-row > div.form-no-label  {
-  width: 1px;
-  max-width: 1px;
+  label {
+    width: 0px;
+    max-width: 0px;
+  }
  .form-label {
-   width: 1px;
-   max-width: 1px;
+   width: 0px;
+   max-width: 0px;
  }
 }
 .form-row .form-actions {

@@ -132,13 +132,13 @@ div[data-drupal-selector=edit-actions] {
   width: auto;
 }
 
-.form-row > div.form-no-label {
-  width: 1px;
-  max-width: 1px;
+.form-row > div.form-no-label label {
+  width: 0px;
+  max-width: 0px;
 }
 .form-row > div.form-no-label .form-label {
-  width: 1px;
-  max-width: 1px;
+  width: 0px;
+  max-width: 0px;
 }
 
 .form-row .form-actions {
@@ -465,13 +465,13 @@ div[data-drupal-selector=edit-actions] {
   width: auto;
 }
 
-.form-row > div.form-no-label {
-  width: 1px;
-  max-width: 1px;
+.form-row > div.form-no-label label {
+  width: 0px;
+  max-width: 0px;
 }
 .form-row > div.form-no-label .form-label {
-  width: 1px;
-  max-width: 1px;
+  width: 0px;
+  max-width: 0px;
 }
 
 .form-row .form-actions {
