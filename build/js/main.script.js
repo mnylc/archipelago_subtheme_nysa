@@ -3231,7 +3231,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
   Drupal.behaviors.bootstrap_nysa_scrollspy = {
     attach: function attach(context, settings) {
       function SetFixedPositioning(ele) {
-        if (window.matchMedia("(max-width: 976px)").matches) {
+        if (!window.matchMedia("(max-width: 991px)").matches) {
           var element = $(ele);
           var rect = ele.getBoundingClientRect();
           element.css("position", "");
@@ -3256,7 +3256,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         }
       }
       function ResetFixedPositioning(ele) {
-        if (window.matchMedia("(max-width: 976px)").matches) {
+        if (!window.matchMedia("(max-width: 991px)").matches) {
           var element = $(ele);
           var currentFixedOffset = element.offset();
           // We want to keep the Vertical offset
@@ -3283,7 +3283,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         }
       }
       function SetAbsolutePositioning(ele) {
-        if (window.matchMedia("(max-width: 976px)").matches) {
+        if (!window.matchMedia("(max-width: 991px)").matches) {
           var spiedOn = document.querySelector('#main-content .spied');
           var scrollspy = document.querySelector('#main-content .list-scrollspy');
           if (spiedOn && scrollspy) {
@@ -3314,7 +3314,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         }
       }
       function UnSetFixedPositioning(ele) {
-        if (window.matchMedia("(max-width: 976px)").matches) {
+        if (!window.matchMedia("(max-width: 991px)").matches) {
           var element = $(ele);
           element.css("position", "");
           element.css("left", "");

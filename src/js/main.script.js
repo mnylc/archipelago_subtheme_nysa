@@ -95,7 +95,7 @@ import Popover from 'bootstrap/js/dist/popover';
   Drupal.behaviors.bootstrap_nysa_scrollspy = {
     attach: function (context, settings) {
       function SetFixedPositioning(ele) {
-        if (window.matchMedia("(max-width: 976px)").matches) {
+        if (!window.matchMedia("(max-width: 991px)").matches) {
           let element = $(ele);
           let rect = ele.getBoundingClientRect()
           element.css("position", "");
@@ -122,7 +122,7 @@ import Popover from 'bootstrap/js/dist/popover';
       }
 
       function ResetFixedPositioning(ele) {
-        if (window.matchMedia("(max-width: 976px)").matches) {
+        if (!window.matchMedia("(max-width: 991px)").matches) {
           let element = $(ele);
           let currentFixedOffset = element.offset();
           // We want to keep the Vertical offset
@@ -150,7 +150,7 @@ import Popover from 'bootstrap/js/dist/popover';
       }
 
       function SetAbsolutePositioning(ele) {
-        if (window.matchMedia("(max-width: 976px)").matches) {
+        if (!window.matchMedia("(max-width: 991px)").matches) {
           const spiedOn = document.querySelector('#main-content .spied');
           const scrollspy = document.querySelector('#main-content .list-scrollspy');
           if (spiedOn && scrollspy) {
@@ -182,7 +182,7 @@ import Popover from 'bootstrap/js/dist/popover';
       }
 
       function UnSetFixedPositioning(ele) {
-        if (window.matchMedia("(max-width: 976px)").matches) {
+        if (!window.matchMedia("(max-width: 991px)").matches) {
           let element = $(ele);
           element.css("position", "");
           element.css("left", "");
