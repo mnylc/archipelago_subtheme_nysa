@@ -123,8 +123,8 @@ div[data-drupal-selector=edit-actions] {
 }
 
 .form-row > div, .form-row > fieldset {
-  padding-right: 0.3125rem;
-  padding-left: 0.3125rem;
+  padding-right: 0;
+  padding-left: 0;
   flex: 0 1 auto;
   width: auto;
 }
